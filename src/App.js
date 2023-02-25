@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-// import Todo from './components/Todo';
 import "./App.css"
 
 function Working(props){
   return (
     <div className='todo-box'>
-      <div>{props.todolist.title}</div>
-      <div>{props.todolist.desc}</div>
-      <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
-      <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>완료</button>
+      <div className='content-box'>
+        <div className='title'>{props.todolist.title}</div>
+        <div className='desc'>{props.todolist.desc}</div><br/>
+        <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
+        <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>완료</button>
+      </div>
     </div>
   )
 }
@@ -16,10 +17,12 @@ function Working(props){
 function Done(props){
   return (
     <div className='todo-box'>
-      <div>{props.todolist.title}</div>
-      <div>{props.todolist.desc}</div>
-      <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
-      <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>취소</button>
+      <div className='content-box'>
+        <div className='title'>{props.todolist.title}</div>
+        <div className='desc'>{props.todolist.desc}</div><br/>
+        <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
+        <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>취소</button>
+      </div>
     </div>
   )
 }
@@ -64,9 +67,6 @@ function App() {
   }
 
   const cancelChangeHandler = (id) => {
-    // const changeTodo = {
-      
-    // }
     const newTodos = todoList.map((item) => {
       if (item.id === id){
         return {...item,isDone:!item.isDone}
@@ -75,33 +75,6 @@ function App() {
     });
 
     setTodoList(newTodos)
-
-
-
-    // const newIsDone ={
-    //   if(isDone ===true){
-    //     isDone = false
-    //   }if(isDone === false){
-    //     todoList.isDone = true
-    //   }
-    // }
-    
-    // const updateTodo = {
-    //   id,
-    //   title,
-    //   desc,
-    //   isDone
-    // }
-    
-    // setTodoList(todoList)
-    // alert("분발하세요")
-
-    // const findIndex = todoList.todolist.findIndex(element => element.isDone === true);
-    // let copyArray = [...todoList.todolist];
-    // if(findIndex !== -1){
-    //   copyArray[findIndex] = {...copyArray[findIndex], isDone: false};
-    // }
-    // setTodoList(copyArray)
     alert("good!")
   }
 
@@ -123,8 +96,6 @@ function App() {
           }else{
             return null
           }
-
-          // return <Working todolist ={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>;
         })}
       </div>
       <h1>Done🥨</h1>
@@ -135,8 +106,6 @@ function App() {
           }else{
             return null
           }
-          
-          // return <Done todolist ={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>;
         })}
       </div>
     </div>

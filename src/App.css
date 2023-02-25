@@ -28,6 +28,7 @@
 }
 
 .todo-box{
+  display: flex;
   width: 250px;
   height: 150px;
   border: 2px solid blueviolet;
@@ -37,6 +38,14 @@
   margin: 15px;
   word-wrap: normal;
 }
+.title{
+  font-size: large;
+}
+
+.desc{
+  font-size: small;
+}
+
 .todolist-box{
   display: flex;
 }
