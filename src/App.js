@@ -8,7 +8,7 @@ function Working(props){
       <div>{props.todolist.title}</div>
       <div>{props.todolist.desc}</div>
       <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
-      <button className="btns" onClick={() => props.handleIsDone(props.todolist.id)}>완료</button>
+      <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>완료</button>
     </div>
   )
 }
@@ -19,7 +19,7 @@ function Done(props){
       <div>{props.todolist.title}</div>
       <div>{props.todolist.desc}</div>
       <button className="btns" onClick={() => props.handleRemove(props.todolist.id)}>삭제</button>
-      <button className="btns" onClick={() => props.handleChangeDone(props.todolist)}>취소</button>
+      <button className="btns" onClick={() => props.handleChangeDone(props.todolist.id)}>취소</button>
     </div>
   )
 }
@@ -29,7 +29,7 @@ function App() {
   const [todoList, setTodoList] =useState([
     {id:1, title:"리액트 공부하기", desc:"리액트 기초를 공부해봅시다.", isDone:true},
     {id:2, title:"저장을 생활화하자", desc:"들숨에 command 날숨에 s", isDone:false},
-    {id:3, title:"격렬하게 아무것도 안하기", desc:"한량생활의 기초를 공부해봅시다.", isDone:true},
+    {id:3, title:"격렬하게 아무것도 안하기", desc:"한량생활의 기초를 공부해봅시다.", isDone:false},
   ]);
 
   const [title, setTitle] = useState("")
@@ -64,6 +64,20 @@ function App() {
   }
 
   const cancelChangeHandler = (id) => {
+    // const changeTodo = {
+      
+    // }
+    const newTodos = todoList.map((item) => {
+      if (item.id === id){
+        return {...item,isDone:!item.isDone}
+      }
+      return item;
+    });
+
+    setTodoList(newTodos)
+
+
+
     // const newIsDone ={
     //   if(isDone ===true){
     //     isDone = false
