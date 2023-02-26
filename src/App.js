@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import "./App.css"
 import Done from './components/Done';
 import Working from './components/Working';
+import Input from './components/Input';
+
 
 
 function App() {
@@ -12,41 +14,17 @@ function App() {
     {id:3, title:"격렬하게 아무것도 안하기", desc:"한량생활의 기초를 공부해봅시다.", isDone:false},
   ]);
 
-  const [title, setTitle] = useState("")
-  const [desc, setDesc] = useState("")
-
-  const titleChangeHandler = (event) => {
-    setTitle(event.target.value)
-  }
-
-  const descChangeHandler = (event) => {
-    setDesc(event.target.value)
-  }
-
-  const formSubmitHandler = (event) => {
-    const newTodo = {
-      id : todoList.length +1,
-      title,
-      desc,
-      isDone : false
-    }
-    event.preventDefault();
-    setTodoList([...todoList, newTodo])
-    alert("할 일 등록 완료!")
-    setTitle("")
-    setDesc("")
-  }
-
   const removeTodoHandler = (id) => {
     const newestTodoList = todoList.filter((todolist)=>todolist.id !== id);
     setTodoList(newestTodoList)
     alert("삭제 완료!")
   }
 
-  const cancelChangeHandler = (id) => {
+  const doneChangeHandler = (id) => {
     const newTodos = todoList.map((item) => {
+      console.log(item)
       if (item.id === id){
-        return {...item,isDone:!item.isDone}
+        return {...item,isDone : !item.isDone}
       }
       return item;
     });
@@ -60,16 +38,12 @@ function App() {
       <div className='header'>
         <span>My Todo List</span>
       </div>
-      <form className='input-form' onSubmit={formSubmitHandler}>
-        제목 : <input type="text" value={title} required onChange={titleChangeHandler}/>
-        내용 : <input type="text" value={desc} required onChange={descChangeHandler}/>
-        <input type="submit" value="추가하기" className='submit-btn'/>
-      </form>
+      <Input todoList={todoList} setTodoList={setTodoList}/>
       <h1>Working🔥</h1>
       <div className='todolist-box'>
         {todoList.map((todolist) => {
           if(todolist.isDone === false){
-            return <Working todolist ={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={cancelChangeHandler}/>
+            return <Working todolist ={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>
           }else{
             return null
           }
@@ -79,7 +53,7 @@ function App() {
       <div className='todolist-box'>
         {todoList.map((todolist) => {
           if (todolist.isDone === true) {
-            return <Done todolist={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={cancelChangeHandler}/>;
+            return <Done todolist={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>;
           }else{
             return null
           }
