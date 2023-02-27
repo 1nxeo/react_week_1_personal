@@ -32,10 +32,10 @@ function Input ({todoList,setTodoList}) {
         <div className='input-form'>
             <form onSubmit={formSubmitHandler}>
                 <div>
-                제목 : <input type="text" value={title} required onChange={titleChangeHandler}/>
+                제목 : <input className="input-box" type="text" value={title} required onChange={titleChangeHandler}/>
                 </div>
                 <div>
-                내용 : <input type="text" value={desc} required onChange={descChangeHandler}/>
+                내용 : <input className="input-box" type="text" value={desc} required onChange={descChangeHandler}/>
                 </div>
                 <input type="submit" value="추가하기" className='submit-btn'/>
             </form>

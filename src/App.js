@@ -34,7 +34,8 @@ function App() {
   }
 
   return (
-    <div className='app-style'>
+    <div className='web'>
+      <div className='app-style'>
       <div className='header'>
         <div className='page-title'>My Todo List</div>
         <div></div>
@@ -61,6 +62,7 @@ function App() {
           }
         })}
       </div>
+    </div>
     </div>
   );
 }
