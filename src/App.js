@@ -15,7 +15,7 @@ function App() {
   ]);
 
   const removeTodoHandler = (id) => {
-    const newestTodoList = todoList.filter((todolist)=>todolist.id !== id);
+    const newestTodoList = todoList.filter((item)=>item.id !== id);
     setTodoList(newestTodoList)
     alert("삭제 완료!")
   }
@@ -36,24 +36,26 @@ function App() {
   return (
     <div className='app-style'>
       <div className='header'>
-        <span>My Todo List</span>
+        <div className='page-title'>My Todo List</div>
+        <div></div>
+        <div className='name-tag'>Inseo</div>
       </div>
       <Input todoList={todoList} setTodoList={setTodoList}/>
-      <h1>Working🔥</h1>
+      <h1>Working 🔥</h1>
       <div className='todolist-box'>
-        {todoList.map((todolist) => {
-          if(todolist.isDone === false){
-            return <Working todolist ={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>
+        {todoList.map((todoList) => {
+          if(todoList.isDone === false){
+            return <Working todoList ={todoList} key={todoList.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>
           }else{
             return null
           }
         })}
       </div>
-      <h1>Done🥨</h1>
+      <h1>Done 🥨</h1>
       <div className='todolist-box'>
-        {todoList.map((todolist) => {
-          if (todolist.isDone === true) {
-            return <Done todolist={todolist} key={todolist.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>;
+        {todoList.map((todoList) => {
+          if (todoList.isDone === true) {
+            return <Done todoList={todoList} key={todoList.id} handleRemove={removeTodoHandler} handleChangeDone={doneChangeHandler}/>;
           }else{
             return null
           }

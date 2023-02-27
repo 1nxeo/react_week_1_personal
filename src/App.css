@@ -7,7 +7,7 @@
 *{
   font-family: 'NeoDunggeunmoPro-Regular', sans-serif;
   /* max-width: 1200px;
-  min-width: 800px; */
+  min-width: 800px; */ 
 }
 
 .app-style{
@@ -23,35 +23,101 @@
 }
 
 .header{
-  height: 40px;
+  padding:10px;
+  height: 50px;
+  line-height: 50px;
   font-size: larger;
+  border: 2px dashed;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items:center;
+  max-width: 1200px;
+  min-width: 800px;
+}
+.page-title{
+  margin: 0 20px;
+}
+
+.name-tag{
+  text-align: end;
+  margin: 0 20px
+}
+
+.input-form>form{
+  border: 2px dashed orange;
+  border-radius: 15px;
+  height: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  padding:10px;
+  max-width: 1200px;
+  min-width: 800px;
+}
+
+.input-form > div{
+  margin:10px;
+}
+
+.submit-btn{
+  margin: 10px;
+  border: 1px dashed blue;
+  border-radius: 5px;
+  align-items: end;
+}
+
+.submit-btn:hover{
+  border : solid blue;
 }
 
 .todo-box{
   display: flex;
+  flex-direction: column;
   width: 250px;
   height: 150px;
   border: 2px solid blueviolet;
   border-radius: 10px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin: 15px;
-  word-wrap: normal;
+  word-wrap: wrap;
+  flex-wrap: wrap;
 }
 .title{
   font-size: large;
+  margin: 5px;
 }
 
 .desc{
   font-size: small;
+  margin: 5px;
 }
 
 .todolist-box{
   display: flex;
 }
 
+.content-box{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+}
+
 .btns{
   background-color: lightgray;
-  border: 1px solid greenyellow;
+  border: 1px dashed greenyellow;
   border-radius: 5px;
+  margin: 10px;
+  justify-content: ;
+}
+
+.btns:hover{
+  border : solid greenyellow
 }
