@@ -14,18 +14,42 @@ function Input ({todoList,setTodoList}) {
     }
 
     const formSubmitHandler = (event) => {
-        const newTodo = {
-            id : todoList.length + 1,
-            title,
-            desc,
-            isDone : false
-        }
-        console.log(newTodo)
-        event.preventDefault();
-        setTodoList([...todoList, newTodo])
-        alert("할 일 등록 완료!")
+        if(todoList.length ===0){
+            const newTodo={
+                id:1,
+                title,
+                desc,
+                isDone : false
+            }
+        setTodoList([...todoList,newTodo])
         setTitle("")
         setDesc("")
+        }else{
+            let max_id =todoList[todoList.length -1]
+            let num = max_id.id
+            let max_num = num + 1
+            const newTodo = {
+                id:max_num,
+                title,
+                desc,
+                isDone:false
+            }
+            setTodoList([...todoList,newTodo])
+            setTitle("")
+            setDesc("")
+        }
+        // const newTodo = {
+        //     id : todoList.length + 1,
+        //     title,
+        //     desc,
+        //     isDone : false
+        // }
+        // console.log(newTodo)
+        // event.preventDefault();
+        // setTodoList([...todoList, newTodo])
+        // alert("할 일 등록 완료!")
+        // setTitle("")
+        // setDesc("")
     }
 
     return (
