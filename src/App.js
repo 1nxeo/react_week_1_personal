@@ -22,7 +22,7 @@ function App() {
 
   const doneChangeHandler = (id) => {
     const newTodos = todoList.map((item) => {
-      console.log(item)
+      // console.log(item)
       if (item.id === id){
         return {...item,isDone : !item.isDone}
       }
@@ -39,7 +39,7 @@ function App() {
       <div className='header'>
         <div className='page-title'>My Todo List</div>
         <div></div>
-        <div className='name-tag'>Inseo</div>
+        <div className='name-tag'>1nxeo</div>
       </div>
       <Input todoList={todoList} setTodoList={setTodoList}/>
       <h1>Working 🔥</h1>
